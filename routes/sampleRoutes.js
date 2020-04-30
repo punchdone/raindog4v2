@@ -63,18 +63,27 @@ module.exports = app => {
     });
 
     app.delete('/api/projects/:projectId/samples/:sampleId', async (req, res) => {
-        // console.log('[DELETE /api/clients/:clientId/samples/:sampleId] req.params = ', req.params);
-        const projectId = req.params.projectId;
-        console.log('projectId = ', projectId);
-        const sampleId = req.params.sampleId;
-        console.log('sampleId = ', sampleId);
-        let project = await Project.findById(req.params.clientId).populate('samples').exec();
-        // console.log('project = ', project);
-        // console.log('Before client.samples = ', client.samples);
-        project.samples.pull(sampleId);
-        // console.log('After client.samples = ', client.samples);
+        
+        
+        let project = await Project.findById(req.params.projectId);
+        project.samples.pull(req.params.sampleId);
         project.save();
-        await Sample.findByIdAndDelete(req.params.sampleId); 
+        await Sample.findByIdAndDelete(req.params.sampleId);
+        res.send(project);
+    
+        
+        // // console.log('[DELETE /api/clients/:clientId/samples/:sampleId] req.params = ', req.params);
+        // const projectId = req.params.projectId;
+        // console.log('projectId = ', projectId);
+        // const sampleId = req.params.sampleId;
+        // console.log('sampleId = ', sampleId);
+        // let project = await Project.findById(req.params.clientId).populate('samples').exec();
+        // console.log('project = ', project);
+        // // console.log('Before client.samples = ', client.samples);
+        // project.samples.pull(sampleId);
+        // // console.log('After client.samples = ', client.samples);
+        // project.save();
+        // await Sample.findByIdAndDelete(req.params.sampleId); 
     });
 
 };

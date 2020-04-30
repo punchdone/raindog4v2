@@ -18,7 +18,7 @@ class SampleCompleteList extends Component {
         console.log('[renderSamples] this.state.samples = ', this.state.samples)
         return this.state.samples.map(sample => {
             return (
-                <li>{sample.type}: {sample.material}-{sample.finish}</li>
+                <li><span style={{ textTransform: 'capitalize' }}>{sample.type}</span>: {sample.material}-{sample.finish}</li>
             )
         })
     }
@@ -27,7 +27,7 @@ class SampleCompleteList extends Component {
 
         return (
             <div>
-                <h2>Sample List</h2>
+                <h2>Samples Checked Out List</h2>
                 <ol>
                     {this.renderSamples()}
                 </ol>

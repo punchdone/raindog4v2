@@ -8,6 +8,7 @@ export const fetchClients = () => async dispatch => {
 };
 
 export const addClient = (values, history) => async dispatch => {
-    const res = await axios.post('/api/clients', values);
-    history.push('/clients');
+    // const res = await axios.post('/api/projects', values);
+    // history.push('/projects');
+    // dispatch({ type: actionTypes.ADD_CLIENT, payload,res.data });
 };

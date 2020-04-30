@@ -12,7 +12,7 @@ const projectSchema = new Schema({
     phones: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'phoneNumbers'
+            ref: 'phones'
         }
     ],
     emails: [
@@ -25,6 +25,12 @@ const projectSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             ref: 'samples'
+        }
+    ],
+    rooms: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'rooms'
         }
     ],
     createdDate: Date

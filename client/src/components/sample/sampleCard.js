@@ -15,18 +15,19 @@ class SampleCard extends Component {
     removeSample = this.removeSample.bind(this);
 
     async componentDidMount() {
-        const sampleList = await axios.get('/api/clients/'+this.props.id+'/samples');
+        const sampleList = await axios.get('/api/projects/'+this.props.id+'/samples');
         this.setState({ samples: sampleList.data });
         console.log('[componentDidMount] this.state.samples = ', this.state.samples);
     };
 
     addSample(val) {
+        console.log('[addSamples] this.state.samples = ', this.state.samples);
         console.log('[addSample] val = ', val);
         // const type = this.state.type;
         // const material = this.state.material;
         // const finish = this.state.finish;
         // alert('This is the sample: ' + type + ':' + material +'/' + finish);
-        axios.post('/api/clients/'+this.state.clientId+'/samples', val)
+        axios.post('/api/projects/'+this.state.clientId+'/samples', val)
             .then(response => console.log(response))
             .catch(err => console.log(err));
         this.setState({ samples: [...this.state.samples, val]});
@@ -36,7 +37,7 @@ class SampleCard extends Component {
     removeSample(sampleId) {
         console.log('[removeSample] sampleId = ', sampleId);
         console.log('[removeSample] clientId = ', this.state.clientId);
-        axios.delete('/api/clients/'+this.state.clientId+'/samples/'+sampleId)
+        axios.delete('/api/projects/'+this.state.clientId+'/samples/'+sampleId)
             .then(response => console.log(response))
             .catch(err => console.log(err));
         const newSamples = this.state.samples.filter(sample => sample._id !== sampleId);
