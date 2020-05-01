@@ -39,7 +39,14 @@ const addProductFail = ( state, action ) => {
 };
 
 const removeProduct = ( state, action ) => {
-    const newProductList = state.products.filter(product => product._id !== action.productId);
+    console.log('[removeProduct] action.productId = ', action.payload);
+    const newProductList = state.products.filter(product => product._id !== action.payload);
+    return updateObject( state, { products: newProductList });
+};
+
+const updateProduct = ( state, action ) => {
+    const oldProductList = state.products.filter(product => product._id !== action.productDetails._id);
+    const newProductList = {...oldProductList, ...action.productDetails};
     return updateObject( state, { products: newProductList });
 };
 
@@ -52,6 +59,7 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.ADD_PRODUCT_SUCCESS: return addProductSuccess( state, action );
         case actionTypes.ADD_PRODUCT_FAIL: return addProductFail( state, action );
         case actionTypes.REMOVE_PRODUCT: return removeProduct( state, action );
+        case actionTypes.UPDATE_PRODUCT: return updateProduct( state, action );
         default: return state;
     };
 };

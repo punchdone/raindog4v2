@@ -29,6 +29,7 @@ const App = () => {
                         <Route exact path="/products/selections" component={SelectionForm} />
                         <Route exact path="/products" component={Product} />
                         <Route exact path="/products/new" component={ProductForm} />
+                        <Route exact path="/products/:productId" component={ProductForm} />
                         
                         
                     </div>

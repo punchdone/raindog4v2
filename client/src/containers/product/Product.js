@@ -15,6 +15,10 @@ class Product extends Component {
         this.props.history.push('/products/new');
     }
 
+    viewProduct = (productId) => {
+        this.props.history.push('/products/'+productId);
+    }
+
     render() {
 
         console.log(this.props.products);
@@ -23,7 +27,10 @@ class Product extends Component {
             <div>
                 <h5>Product Catalog</h5>
                 <div className="row">
-                    <ProductList products={this.props.products} />
+                    <ProductList 
+                        products={this.props.products} 
+                        viewProduct={this.viewProduct}
+                        removeProduct={this.props.onRemoveProduct} />
                 </div>
                 <button 
                     className="btn-flat blue white-text"
@@ -45,7 +52,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchProducts: () => dispatch(actions.fetchProducts())
+        onFetchProducts: () => dispatch(actions.fetchProducts()),
+        onRemoveProduct: (id) => dispatch(actions.removeProduct(id))
     }
 }
 

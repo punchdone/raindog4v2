@@ -70,6 +70,13 @@ export const addProduct = (productDetails) => {
 };
 
 export const removeProduct = ( productId ) => async dispatch => {
+    console.log('[removeProduct] you made it! payload = ', productId);
     await axios.delete('/api/products/'+productId);
     dispatch({ type: actionTypes.REMOVE_PRODUCT, payload: productId });
+};
+
+export const updateProduct = (productDetails) => async dispatch => {
+    console.log('[updateProduct] productDetails = ', productDetails);
+    await axios.put('/api/products',+productDetails._id);
+    dispatch({ type: actionTypes.UPDATE_PRODUCT, productDetails});
 };

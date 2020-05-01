@@ -10,7 +10,11 @@ const productList = (props) => {
         return props.products.map(product => {
             return (
                 <div className="col m4">
-                    <Item {...product} />
+                    <Item 
+                        {...product} 
+                        removeProduct={props.removeProduct}
+                        viewProduct={props.viewProduct}
+                     />
                 </div>
                 
             )

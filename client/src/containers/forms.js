@@ -225,7 +225,7 @@ export const productForm = {
             placeholder: 'Min Width'
         },
         label: 'Width Minimum',
-        value: '',
+        value: 0,
         valid: true
     },
     widthmax: {
@@ -235,7 +235,7 @@ export const productForm = {
             placeholder: 'Max Width'
         },
         label: 'Width Maximum',
-        value: '',
+        value: 0,
         valid: true
     },
     widthstd: {
@@ -245,7 +245,7 @@ export const productForm = {
             placeholder: 'Std Width'
         },
         label: 'Width Standard',
-        value: '',
+        value: 0,
         valid: true
     },
     widthfix: {

@@ -14,7 +14,16 @@ const productSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'products'
         }
-    ],
+	],
+	priceMethod: String,
+	price1: Number,
+	price2: Number,
+	price3: Number,
+	price4: Number,
+	price5: Number,
+	price6: Number:
+	price7: Number,
+	price8: Number,
     widthmin: Number,
 	widthmax: Number,
 	widthstd: Number,

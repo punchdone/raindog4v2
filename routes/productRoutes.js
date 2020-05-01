@@ -19,6 +19,12 @@ module.exports = app => {
         res.send(product);
     });
 
+    //Remove product
+    app.delete('/api/products/:productId', async (req, res) => {
+        await Product.findByIdAndDelete(req.params.productId);
+        res.send('Deleted Successfully!');
+    });
+
     //List selections
     app.get('/api/products/selections', async (req, res) => {
         const selections = await Selection.find().populate('attributes').exec();
