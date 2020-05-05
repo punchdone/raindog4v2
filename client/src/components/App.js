@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 
 import Header from './Header';
-import Landing from './client/clientDashboard';
+import Landing from '../components/Landing/landing';
+import ProjectList from './client/projectList';
 import ClientForm from '../containers/client/ClientForm';
 import SampleCompleteList from '../containers/sample/SampleCompleteList';
 import ProjectForm from '../containers/project/ProjectForm';
@@ -20,7 +21,7 @@ const App = () => {
                     <div>
                         <Header />
                         <Route exact path="/" component={Landing} />
-                        <Route exact path="/projects" component={Landing} />
+                        <Route exact path="/projects" component={ProjectList} />
                         <Route exact path="/samples/list" component={SampleCompleteList} />
                         <Route exact path="/projects/new" component={ClientForm} />
                         <Route path="/projects/:projectId/rooms/:roomId/orders/:orderId" component={OrderForm} />

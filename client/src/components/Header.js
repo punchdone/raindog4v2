@@ -15,7 +15,7 @@ class Header extends Component {
                         className="left brand-logo">
                             Raindog
                     </Link>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li><a href="/projects">Projects</a></li>
                         <li><a href="/products">Catalog</a></li>
                         <li><a href="/products/selections">Selections</a></li>
