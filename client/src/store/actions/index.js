@@ -36,3 +36,11 @@ export {
     removeProduct
 } from './product';
 
+export {
+    fetchProject,
+    fetchProjects,
+    addProject,
+    updateProject,
+    removeProject
+} from './project';
+

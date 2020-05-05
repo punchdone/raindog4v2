@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 // const autoIncrement = require('mongoose-auto-increment');
 
-require('./models/Project');
-require('./models/Sample');
+require('./models/Project/Project');
+require('./models/Product/Sample');
 require('./models/Client/Address');
 require('./models/Client/Email');
 require('./models/Client/Phone');
-require('./models/Room');
+require('./models/Project/Room');
 require('./models/Order/Order');
 require('./models/Product/Product');
 require('./models/Product/Selections/Selection');
 require('./models/Product/Selections/Attribute');
 require('./models/Product/Selections/Finish');
 
-mongoose.connect('mongodb+srv://rw_user:wood2good@cluster0-dqmci.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://rw_user:rudy4joy@cluster0-dqmci.mongodb.net/test?retryWrites=true&w=majority');
 
 // autoIncrement.initialize(connection);
 

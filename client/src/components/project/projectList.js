@@ -2,10 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ClientList from '../../containers/client/ClientList';
 
-const clientDashboard = () => {
+const projectsList = () => {
     return (
         <div>
-            <h3>Sample Checkout List</h3>
+            <h5>Project List</h5>
+            <Link
+                className="btn-flat btn-large green white-text"
+                to="/projects/new">
+                    Add Project<i className="material-icons">add</i>
+            </Link>
             <ClientList />
             <div className="fixed-action-btn">
                 <Link to="/projects/new" className="btn-floating btn-large green">
@@ -16,4 +21,4 @@ const clientDashboard = () => {
     );
 };
 
-export default clientDashboard;
+export default projectsList;

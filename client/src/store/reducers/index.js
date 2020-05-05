@@ -6,6 +6,7 @@ import finishesReducer from './finishesReducer';
 import selectionsReducer from './selectionsReducer';
 import ordersReducer from './ordersReducer';
 import productsReducer from './productsReducer';
+import projectsReducer from './projectsReducer';
 
 export default combineReducers({
     form: reduxForm,
@@ -14,5 +15,6 @@ export default combineReducers({
     finishes: finishesReducer,
     selections: selectionsReducer,
     orders: ordersReducer,
-    products: productsReducer
+    products: productsReducer,
+    projects: projectsReducer
 });
