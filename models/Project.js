@@ -33,7 +33,11 @@ const projectSchema = new Schema({
             ref: 'rooms'
         }
     ],
-    createdDate: Date
+    active: Boolean,
+    createdDate: {
+        type: Date,
+        default: Date.now()
+    }
 });
 
 mongoose.model('projects', projectSchema);

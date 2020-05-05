@@ -29,6 +29,7 @@ export {
 } from './order';
 
 export {
+    fetchProduct,
     fetchProducts,
     addProduct,
     updateProduct,

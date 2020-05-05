@@ -1,33 +1,51 @@
-import {
-    FETCH_FINISH_TYPES,
-    FETCH_STOCK_LEVELS,
-    FETCH_MATERIALS,
-    FETCH_SELECTIONS
-} from '../actions/actionTypes';
+import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
 const initialState = {
     selections: [],
     finishTypes: [],
     stockLevels: [],
-    materials: []
+    materials: [],
+    loading: false
 };
 
-export default function ( state = initialState, action) {
+const fetchSelectionsStart = ( state, action ) => {
+    return updateObject( state, { loading: true} );
+};
+
+const fetchSelectionsSuccess = ( state, action ) => {
+    return updateObject( state, {
+        selections: action.selections,
+        loading: false
+    });
+};
+
+const fetchSelectionsFail = ( state, action ) => {
+    return updateObject( state, { loading: false});
+};
+
+const fetchFinishTypes = ( state, action ) => {
+    return updateObject( state, { finishTypes: action.payload });
+};
+
+const fetchStockLevels = ( state, action ) => {
+    return updateObject( state, { stockLevels: action.payload })
+};
+
+const fetchMaterials = ( state, action ) => {
+    return updateObject( state, { materials: action.payload});
+};
+
+const reducer =  ( state = initialState, action) => {
     switch(action.type) {
-        case FETCH_SELECTIONS:
-            console.log('[FETCH_SELECTIONS] action.payload = ', action.payload);
-            return updateObject( state, { selections: action.payload });
-        case FETCH_FINISH_TYPES:
-            console.log('[FETCH_FINISH_TYPES] action.payload = ', action.payload);
-            return updateObject( state, { finishTypes: action.payload });
-        case FETCH_STOCK_LEVELS:
-            console.log('[FETCH_STOCK_LEVELS] action.payload = ', action.payload);
-            return updateObject( state, { stockLevels: action.payload });
-        case FETCH_MATERIALS:
-            console.log('[FETCH_MATERIALS] action.payload = ', action.payload);
-            return updateObject( state, { materials: action.payload });
-        default:
-            return state;
+        case actionTypes.FETCH_SELECTIONS_START: return fetchSelectionsStart( state, action );
+        case actionTypes.FETCH_SELECTIONS_SUCCESS: return fetchSelectionsSuccess( state, action );
+        case actionTypes.FETCH_SELECTIONS_FAIL: return fetchSelectionsFail( state, action );
+        case actionTypes.FETCH_FINISH_TYPES: return fetchFinishTypes( state, action );
+        case actionTypes.FETCH_STOCK_LEVELS: return fetchStockLevels( state, action );
+        case actionTypes.FETCH_MATERIALS: return fetchMaterials( state, action );
+        default: return state;
     }
 };
+
+export default reducer;

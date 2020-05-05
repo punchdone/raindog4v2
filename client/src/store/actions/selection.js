@@ -1,18 +1,38 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
+export const fetchSelectionsStart = () => {
+    return {
+        type: actionTypes.FETCH_SELECTIONS_START
+    }
+};
+
+export const fetchSelectionsSuccess = ( selections ) => {
+    return {
+        type: actionTypes.FETCH_SELECTIONS_SUCCESS,
+        selections: selections
+    }
+};
+
+export const fetchSelectionsFail = ( error ) => {
+    return {
+        type: actionTypes.FETCH_SELECTIONS_FAIL,
+        error: error
+    }
+};
+
 export const fetchSelections = () => {
     return dispatch => {
-        console.log('[fetchSelections] you made it!');
+        dispatch(fetchSelectionsStart());
         axios.get('/api/products/selections')
             .then (res => {
-                console.log('[fetchSelections] res.data = ', res.data);
-                dispatch({ type: actionTypes.FETCH_SELECTIONS, payload: res.data });
+                // console.log('[fetchSelections] res.data = ', res.data);
+                dispatch(fetchSelectionsSuccess(res.data));
             })
             .catch( err => {
-                console.log(err);
-            })
-    }
+                dispatch(fetchSelectionsFail(err));
+            });
+    };
 };
 
 export const fetchFinishTypes = () => {

@@ -13,6 +13,18 @@ module.exports = app => {
         res.send(products);
     });
 
+     //List selections
+     app.get('/api/products/selections', async (req, res) => {
+        const selections = await Selection.find();
+        res.send(selections);
+    });
+
+    //Get product details
+    app.get('/api/products/:productId', async (req, res) => {
+        const product = await Product.findById(req.params.productId);
+        res.send(product);
+    });
+
     //Add product
     app.post('/api/products', async (req, res) => {
         const product = await Product.create(req.body);
@@ -25,11 +37,26 @@ module.exports = app => {
         res.send('Deleted Successfully!');
     });
 
+    app.put('/api/products/:productId', async (req, res) => {
+        console.log('PUT ', req.params.productId);
+        console.log('PUT ', req.body);
+        let product = await Product.findByIdAndUpdate(req.params.productId, req.body);
+        try {
+            await product.save();
+        } catch (err) {
+            res.status(422).send(err);
+        }
+        updatedProduct = await Product.findById(product._id);
+        res.send(updatedProduct);
+    })
+
     //List selections
-    app.get('/api/products/selections', async (req, res) => {
-        const selections = await Selection.find().populate('attributes').exec();
-        res.send(selections)
+    app.get('/api/selections', async (req, res) => {
+        const selections = await Selection.find();
+        res.send(selections);
     });
+
+   
 
     //List finish types
     app.get('/api/products/selections/finishTypes', async (req, res) => {

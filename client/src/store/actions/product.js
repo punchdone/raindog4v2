@@ -34,6 +34,40 @@ export const fetchProducts = () => {
     };
 };
 
+export const fetchProductSuccess = ( product ) => {
+    return {
+        type: actionTypes.FETCH_PRODUCT_SUCCESS,
+        product: product
+    }
+};
+
+export const fetchProductFail = ( error ) => {
+    return {
+        type: actionTypes.FETCH_PRODUCT_FAIL,
+        error: error
+    }
+};
+
+export const fetchProductStart = () => {
+    return { 
+        type: actionTypes.FETCH_PRODUCT_START 
+    }
+};
+
+export const fetchProduct = (id) => {
+    return dispatch => {
+        console.log('[fetchProduct] id = ', id);
+        dispatch(fetchProductStart());
+        axios.get('/api/products/'+id)
+            .then ( res => {
+                dispatch(fetchProductSuccess(res.data));
+            })
+            .catch(err => {
+                dispatch(fetchProductFail(err));
+            });
+    };
+};
+
 export const addProductSuccess = (id, productData) => {
     return {
         type: actionTypes.ADD_PRODUCT_SUCCESS,

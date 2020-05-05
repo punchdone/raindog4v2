@@ -21,7 +21,7 @@ const productSchema = new Schema({
 	price3: Number,
 	price4: Number,
 	price5: Number,
-	price6: Number:
+	price6: Number,
 	price7: Number,
 	price8: Number,
     widthmin: Number,

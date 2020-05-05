@@ -15,7 +15,7 @@ require('./models/Product/Selections/Selection');
 require('./models/Product/Selections/Attribute');
 require('./models/Product/Selections/Finish');
 
-mongoose.connect('mongodb+srv://rw_user:wood2good@cluster0-gooul.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://rw_user:wood2good@cluster0-dqmci.mongodb.net/test?retryWrites=true&w=majority');
 
 // autoIncrement.initialize(connection);
 

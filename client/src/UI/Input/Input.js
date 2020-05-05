@@ -7,7 +7,7 @@ const input = ( props ) => {
 
     switch ( props.elementType ) {
         case ( 'input' ):
-            console.log('[text] props = ', props);
+            // console.log('[text] props = ', props);
             inputElement = <input
                 {...props.elementConfig}
                 value={props.value}

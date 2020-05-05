@@ -10,6 +10,12 @@ const selectionSchema = new Schema({
             ref: 'attributes'
         } 
     ],
+    relations: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'selections'
+        }
+    ],
     productLine: Number,
     stockLevel: Number,
     createdDate: {

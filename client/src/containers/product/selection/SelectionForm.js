@@ -92,7 +92,8 @@ class SelectionForm extends Component {
             {value: 'finishType', label: 'Finish Types'},
             {value: 'stocking', label: 'Stocking Category'},
             {value: 'cabType', label: 'Cabinet Type'},
-            {value: 'productLine', label: 'Product Line'}
+            {value: 'productLine', label: 'Product Line'},
+            {value: 'pricing', label: 'Pricing Type'}
         ]
 
         return (

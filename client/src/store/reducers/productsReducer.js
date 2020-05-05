@@ -3,7 +3,7 @@ import { updateObject } from '../../shared/utility';
 
 const initialState = {
     products: [],
-    loading: false,
+    loading: true,
     submitting: false
 }
 
@@ -14,11 +14,26 @@ const fetchProductsStart = ( state, action ) => {
 const fetchProductsSuccess = ( state, action ) => {
     return updateObject( state, {
         products: action.products,
-        lodaing: false
+        loading: false
     });
 };
 
 const fetchProductsFail = ( state, action ) => {
+    return updateObject( state, { loading: false });
+};
+
+const fetchProductStart = ( state, action ) => {
+    return updateObject ( state, { loadig: true } );
+};
+
+const fetchProductSuccess = ( state, action ) => {
+    return updateObject( state, {
+        loading: false,
+        product: action.product
+    });
+};
+
+const fetchProductFail = ( state, action ) => {
     return updateObject( state, { loading: false });
 };
 
@@ -55,6 +70,9 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.FETCH_PRODUCTS_START: return fetchProductsStart( state, action );
         case actionTypes.FETCH_PRODUCTS_SUCCESS: return fetchProductsSuccess( state, action );
         case actionTypes.FETCH_PRODUCTS_FAIL: return fetchProductsFail( state, action );
+        case actionTypes.FETCH_PRODUCT_START: return fetchProductStart( state, action );
+        case actionTypes.FETCH_PRODUCT_SUCCESS: return fetchProductSuccess( state, action );
+        case actionTypes.FETCH_PRODUCT_FAIL: return fetchProductFail( state, action );
         case actionTypes.ADD_PRODUCT_START: return addProductStart( state, action );
         case actionTypes.ADD_PRODUCT_SUCCESS: return addProductSuccess( state, action );
         case actionTypes.ADD_PRODUCT_FAIL: return addProductFail( state, action );

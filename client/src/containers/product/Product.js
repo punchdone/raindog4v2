@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import * as actions from '../../store/actions';
+import Spinner from '../../UI/Spinner/Spinner';
 import ProductList from './productList';
 
 class Product extends Component {
@@ -16,28 +17,38 @@ class Product extends Component {
     }
 
     viewProduct = (productId) => {
-        this.props.history.push('/products/'+productId);
+        this.props.history.push('/products/'+productId+'/edit');
     }
 
     render() {
 
-        console.log(this.props.products);
+        // console.log(this.props.products);
+
+        let list = <Spinner />
+
+        if(!this.props.productsLoading) {
+            list =(
+                <div>
+                    <div className="row">
+                        <ProductList 
+                            products={this.props.products} 
+                            viewProduct={this.viewProduct}
+                            removeProduct={this.props.onRemoveProduct} />
+                    </div>
+                    <button 
+                        className="btn-flat blue white-text"
+                        onClick={this.newProduct}
+                    >
+                        New Product
+                    </button>
+                </div>
+            )
+        }
 
         return (
             <div>
                 <h5>Product Catalog</h5>
-                <div className="row">
-                    <ProductList 
-                        products={this.props.products} 
-                        viewProduct={this.viewProduct}
-                        removeProduct={this.props.onRemoveProduct} />
-                </div>
-                <button 
-                    className="btn-flat blue white-text"
-                    onClick={this.newProduct}
-                >
-                    New Product
-                </button>
+                {list}
             </div>
         )
     }
@@ -46,7 +57,8 @@ class Product extends Component {
 const mapStateToProps = state => {
     return {
         orders: state.orders.orders,
-        products: state.products.products
+        products: state.products.products,
+        productsLoading: state.products.loading
     }
 };
 

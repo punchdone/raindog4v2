@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 
+import Header from './Header';
 import Landing from './client/clientDashboard';
 import ClientForm from '../containers/client/ClientForm';
 import SampleCompleteList from '../containers/sample/SampleCompleteList';
@@ -17,6 +18,7 @@ const App = () => {
             <div className="container">
                 <BrowserRouter>
                     <div>
+                        <Header />
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/projects" component={Landing} />
                         <Route exact path="/samples/list" component={SampleCompleteList} />
@@ -29,9 +31,7 @@ const App = () => {
                         <Route exact path="/products/selections" component={SelectionForm} />
                         <Route exact path="/products" component={Product} />
                         <Route exact path="/products/new" component={ProductForm} />
-                        <Route exact path="/products/:productId" component={ProductForm} />
-                        
-                        
+                        <Route exact path="/products/:productId/edit" component={ProductForm} />
                     </div>
                 </BrowserRouter>
             </div>
