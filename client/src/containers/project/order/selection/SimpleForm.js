@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import * as actions from '../../../../store/actions';
 import SimpleSelectionForm from './SimpleSelectionForm';
 import SimpleConfirm from './SimpleConfirm';
-import Spinner from '../../../../UI/Spinner/Spinner';
+import Spinner from '../../../../components/UI/Spinner/Spinner';
 
 class SelectionForm extends Component {
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 
 import Header from './header/Header';
-import Landing from '../components/landing/landing';
-import ProjectList from './project/projectList';
+import Landing from './Landing/landing';
+import ProjectList from './project/Projects';
 import ClientForm from '../containers/client/ClientForm';
 import SampleCompleteList from '../containers/sample/SampleCompleteList';
 import ProjectForm from '../containers/project/ProjectForm';

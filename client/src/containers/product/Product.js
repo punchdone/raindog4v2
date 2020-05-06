@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import * as actions from '../../store/actions';
-import Spinner from '../../UI/Spinner/Spinner';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import ProductList from './productList';
 
 class Product extends Component {
@@ -29,18 +29,22 @@ class Product extends Component {
         if(!this.props.productsLoading) {
             list =(
                 <div>
+                    
                     <div className="row">
                         <ProductList 
                             products={this.props.products} 
                             viewProduct={this.viewProduct}
                             removeProduct={this.props.onRemoveProduct} />
                     </div>
-                    <button 
-                        className="btn-flat blue white-text"
-                        onClick={this.newProduct}
-                    >
-                        New Product
-                    </button>
+                    <div>
+                        <button 
+                            className="btn-flat green left white-text"
+                            onClick={this.newProduct}
+                        >
+                            New Product
+                        </button>
+                    </div>
+               
                 </div>
             )
         }

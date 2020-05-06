@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../../../store/actions/index';
 import FinishItem from './finishItem';
 import FinishAddForm from './FinishAddForm';
-import Spinner from '../../../../UI/Spinner/Spinner';
+import Spinner from '../../../../components/UI/Spinner/Spinner';
 
 class FinishForm extends Component {
     

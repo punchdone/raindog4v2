@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateObject } from '../../../../shared/utility';
-import Input from '../../../../UI/Input/Input';
+import Input from '../../../../components/UI/Input/Input';
 import { finishMaterialForm } from '../../../forms';
 import * as actions from '../../../../store/actions';
 

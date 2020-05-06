@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // import { reduxForm } from 'redux-form';
 
 import { updateObject } from '../../../../shared/utility';
-import Input from '../../../../UI/Input/Input';
+import Input from '../../../../components/UI/Input/Input';
 import { finishForm } from '../../../forms';
 import * as actions from '../../../../store/actions/index';
 

@@ -5,8 +5,8 @@ import Select from 'react-select';
 import * as actions from '../../store/actions';
 import { productForm } from '../forms';
 import { updateObject } from '../../shared/utility';
-import Input from '../../UI/Input/Input';
-import Spinner from '../../UI/Spinner/Spinner';
+import Input from '../../components/UI/Input/Input';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class ProductForm extends Component {
 

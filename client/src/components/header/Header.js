@@ -19,7 +19,7 @@ class Header extends Component {
                         <li><a href="/projects">Projects</a></li>
                         <li><a href="/products">Catalog</a></li>
                         <li><a href="/products/selections">Selections</a></li>
-                        <li><a href="/login">login</a></li>
+                        <li><a href="/login">Login</a></li>
                     </ul>
                     
                 </div>

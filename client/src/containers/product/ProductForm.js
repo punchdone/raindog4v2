@@ -9,7 +9,8 @@ import { updateObject } from '../../shared/utility';
 class ProductForm extends Component {
 
     state = {
-        productForm: productForm
+        productForm: productForm,
+        loading: true
     };
 
     async componentDidMount() {
@@ -91,15 +92,18 @@ class ProductForm extends Component {
 const mapStateToProps = state => {
     return {
         selections: state.selections.selections,
-        materials: state.selections.materials
+        materials: state.selections.materials,
+        product: state.products.product,
+        loading: state.products.loading
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onFetchMaterials: () => dispatch(actions.fetchMaterials()),
-        onFetchSelections: () => actions.fetchSelections(),
-        onAddProduct: (orderDetails) => actions.addProduct(orderDetails)
+        onFetchSelections: () => dispatch(actions.fetchSelections()),
+        onFetchProduct: (id) => dispatch(actions.fetchProduct(id)),
+        onAddProduct: (productDetails) => dispatch(actions.addProduct(productDetails))
     }
 };
 

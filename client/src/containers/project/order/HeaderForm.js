@@ -3,7 +3,7 @@ import { updateObject } from '../../../shared/utility';
 import Select from 'react-select';
 
 //import Input from '../../../UI/Input';
-import Input from '../../../UI/Input/Input'
+import Input from '../../../components/UI/Input/Input'
 import { orderHeaderForm } from '../../forms';
 
 class HeaderForm extends Component {

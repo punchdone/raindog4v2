@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Input from '../../../UI/Input/Input';
+import Input from '../../../components/UI/Input/Input';
 import { updateObject } from '../../../shared/utility';
 
 class RoomForm extends Component {
