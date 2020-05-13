@@ -8,14 +8,15 @@ const productSchema = new Schema({
         ref: 'selections'
     },
     configuration: String,
-    title: String,
+	title: String,
+	images: [{ url: String, public_id: String }],
     mods: [
         {
             type: Schema.Types.ObjectId,
             ref: 'products'
         }
 	],
-	priceMethod: String,
+	priceMethod: Boolean,
 	price1: Number,
 	price2: Number,
 	price3: Number,

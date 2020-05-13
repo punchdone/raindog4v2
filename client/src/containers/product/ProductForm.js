@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { productForm } from '../forms';
-import Input from '../../UI/Input/Input';
+// import Input from '../../UI/Input/Input';
 import * as actions from '../../store/actions/index';
 import { updateObject } from '../../shared/utility';
 
@@ -58,32 +58,31 @@ class ProductForm extends Component {
             });
         }
 
-        let form = (
-            <form onSubmit={this.props.onAddProduct}>
-                {formElementsArray.map(formElement => (
-                    <Input
-                        key={formElement.id}
-                        elementType={formElement.config.elementType}
-                        elementConfig={formElement.config.elementConfig}
-                        label={formElement.config.label}
-                        value={formElement.config.value}
-                        changed={(event) => this.handleInputChange(event, formElement.id)}
-                     />
-                ))}
-                <button
-                    type="submit"
-                    className="green btn-flat white-text"
-                    style={{ margin: '10px 0 10px 0'}}
-                >
-                    Add Product
-                </button>
-            </form>
+        // let form = (
+        //     <form onSubmit={this.props.onAddProduct}>
+        //         {formElementsArray.map(formElement => (
+        //             <Input
+        //                 key={formElement.id}
+        //                 elementType={formElement.config.elementType}
+        //                 elementConfig={formElement.config.elementConfig}
+        //                 label={formElement.config.label}
+        //                 value={formElement.config.value}
+        //                 changed={(event) => this.handleInputChange(event, formElement.id)}
+        //              />
+        //         ))}
+        //         <button
+        //             type="submit"
+        //             className="green btn-flat white-text"
+        //             style={{ margin: '10px 0 10px 0'}}
+        //         >
+        //             Add Product
+        //         </button>
+        //     </form>
         )
 
         return (
             <div>
                 <h5>Product Detail Form</h5>
-                {form}
             </div>
         )
     }

@@ -11,6 +11,7 @@ const productList = (props) => {
             return (
                 <div className="col m4">
                     <Item 
+                        key={product._id}
                         {...product} 
                         removeProduct={props.removeProduct}
                         viewProduct={props.viewProduct}

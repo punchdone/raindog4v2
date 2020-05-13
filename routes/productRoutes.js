@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
+const multer = require('multer');
+const { cloudinary, storage } = require('../cloudinary');
+const upload = multer({ storage });
 
 const Product = mongoose.model('products');
 const Selection = mongoose.model('selections');
 const Attribute = mongoose.model('attributes');
 const Finish = mongoose.model('finishes');
+
 
 module.exports = app => {
 
@@ -26,7 +30,17 @@ module.exports = app => {
     });
 
     //Add product
-    app.post('/api/products', async (req, res) => {
+    app.post('/api/products', upload.array('images', 4), async (req, res) => {
+        console.log('[POST api/products] req.body = ', req.body);
+        console.log('[POST api/products] req.files = ', req.files);
+        req.body.images = [];
+        console.log('[POST api/products] req.body.images = ', req.body.images);
+        for(const file of req.files) {
+            req.body.images.push({
+                url: file.secure_url,
+                public_id: file.public_id
+            });
+        };
         const product = await Product.create(req.body);
         res.send(product);
     });

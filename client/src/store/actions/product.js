@@ -93,7 +93,19 @@ export const addProduct = (productDetails) => {
     return dispatch => {
         dispatch(addProductStart());
         console.log('[addProduct] productDetails = ', productDetails);
-        axios.post('/api/products', productDetails)
+        axios.post('/api/products', productDetails, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+            // onUploadProgress: progressEvent => {
+            //     setUploadPercentage(
+            //         parseInt(
+            //             Math.round((progressEvent.loaded * 100) / progressEvent.total)
+            //         )
+            //     );
+            // setTimeout(() => setUploadPercentage(0), 10000);
+            // }
+        })
             .then( res => {
                 dispatch(addProductSuccess(res.data._id, productDetails));
             })

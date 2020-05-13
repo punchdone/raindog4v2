@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-// const autoIncrement = require('mongoose-auto-increment');
+const autoIncrement = require('mongoose-auto-increment');
 
 require('./models/Project/Project');
 require('./models/Product/Sample');
@@ -17,9 +17,19 @@ require('./models/Product/Selections/Selection');
 require('./models/Product/Selections/Attribute');
 require('./models/Product/Selections/Finish');
 
-mongoose.connect('mongodb+srv://rw_user:wood2good@cluster0-dqmci.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://rw_user:wood2good@cluster0-dqmci.mongodb.net/test?retryWrites=true&w=majority',
+    {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+    }
+);
 
-// autoIncrement.initialize(connection);
+const db = mongoose.connection;
+db.once('open', () => {
+    console.log('we\'re connected!');
+});
+autoIncrement.initialize(db);
 
 
 const app = express();

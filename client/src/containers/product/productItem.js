@@ -5,14 +5,18 @@ const item = (props) => {
     return (
         <div 
             key={props._id}
-            className="card blue-grey darken-1 small"
+            className="card darken-1 small"
         >
-            <div 
-                className="card-content white-text"
-            >
+            <div className="card-image">
+                <img src={props.images[0].url} />
                 <span className="card-title center">
                     {props.title}
                 </span>
+            </div>
+            <div 
+                className="card-content"
+            >
+               
                 <p>ID: {props._id}</p>
             </div>
             <div className="card-action center">
